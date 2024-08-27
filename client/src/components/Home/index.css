@@ -1,0 +1,16 @@
+.home-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-page-image {
+  width: 124px;
+  height: auto;
+}
+
+.home-page-title {
+  text-align: center;
+}

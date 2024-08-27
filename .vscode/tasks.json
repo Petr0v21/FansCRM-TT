@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "presentation": {
+    "echo": false,
+    "reveal": "always",
+    "focus": false,
+    "panel": "dedicated",
+    "showReuseMessage": true
+  },
+  "tasks": [
+    {
+      "label": "build-core",
+      "command": "cd core && npm run build",
+      "args": [],
+      "type": "shell",
+      "problemMatcher": []
+    },
+    {
+      "label": "dev-core",
+      "command": "cd core && npm run start:dev",
+      "args": [],
+      "type": "shell",
+      "problemMatcher": []
+    },
+    {
+      "label": "dev-client",
+      "command": "cd client && npm run dev",
+      "args": [],
+      "type": "shell",
+      "problemMatcher": []
+    },
+    {
+      "label": "start:prod",
+      "command": "cd core && npm run start:prod",
+      "args": [],
+      "type": "shell",
+      "problemMatcher": []
+    }
+  ]
+}
