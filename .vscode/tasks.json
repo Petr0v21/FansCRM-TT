@@ -24,7 +24,7 @@
     },
     {
       "label": "dev-client",
-      "command": "cd client && npm run dev",
+      "command": "cd client && npm run start",
       "args": [],
       "type": "shell",
       "problemMatcher": []
