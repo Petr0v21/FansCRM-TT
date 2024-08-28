@@ -5,10 +5,10 @@ import {
   useContext,
   useEffect,
   useCallback,
-} from "react";
-import { AuthContextType, LoginArgs } from "../types/auth";
-import { FullUser } from "types/user";
-import { useAuthHttp } from "@hooks/useAuthHttp";
+} from 'react';
+import { AuthContextType, LoginArgs } from '../types/auth';
+import { FullUser } from 'types/user';
+import { useAuthHttp } from '@hooks/useAuthHttp';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -18,19 +18,19 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const login = async (args: LoginArgs) => {
     const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append('Content-Type', 'application/json');
 
     const result = await fetchWithAuth(
       `${process.env.REACT_APP_API_URL}/auth/login`,
       {
-        method: "POST",
+        method: 'POST',
         body: JSON.stringify(args),
         headers: myHeaders,
-      }
+      },
     );
 
     if (result && result.accessToken) {
-      localStorage.setItem("token", result.accessToken);
+      localStorage.setItem('token', result.accessToken);
       refersh();
       return true;
     }
@@ -38,9 +38,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return false;
   };
   const logout = () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem('token');
     setUser(null);
-    console.log("new user", user);
   };
 
   const refersh = useCallback(() => {
@@ -49,7 +48,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         if (res) {
           setUser(res);
         }
-      }
+      },
     );
   }, [fetchWithAuth]);
 
@@ -67,7 +66,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider");
+    throw new Error('useAuth must be used within an AuthProvider');
   }
   return context;
 };
